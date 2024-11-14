@@ -7,12 +7,12 @@ import pyttsx3
 import numpy as np
 from gtts import gTTS
 import subprocess
-mytext = 'Welcome to me'
+mytext = 'Welcome to '
 language = 'en'
 # import matplotlib.pyplot as plt
 # ^ matplotlib is great for visualising data and for testing purposes but usually not needed for production
 #Create API
-openai.api_key='AIzaSyCdjK2fPIwJWLwVWxJIq7vFwApYx9TdgTU'
+openai.api_key=os.getenv("API_KEY")
 load_dotenv()
 model = 'gpt-3.5-turbo'
 # Set up the speech recognition and text-to-speech engines
@@ -20,7 +20,7 @@ r = sr.Recognizer()
 engine = pyttsx3.init("dummy")
 voice = engine.getProperty('voices')[1]
 engine.setProperty('voice', voice.id)
-name = "YOUR NAME HERE"
+name = " NAME"
 greetings =  [f"whats up? {name}", f"how are you doing? {name}", f"how are you?"  ]
 
 # Listen for the wake word "hey pos"
